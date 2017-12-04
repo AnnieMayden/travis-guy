@@ -16,7 +16,7 @@ function getCurrentTabUrl (callback) {
 function scrollToError (clickCount) {
   chrome.tabs.executeScript(null, {file: 'jquery.js'}, function () {
     chrome.tabs.executeScript({
-      code: '$("html, body").animate({scrollTop: ($(".bg-red").eq(' + clickCount + ').next().offset().top)},500)'
+      code: '$("html, body").animate({scrollTop: $((([].slice.call(document.querySelectorAll(".bg-red"))).filter(function (error) {return error.innerHTML === " Test "}))[' + clickCount + ']).offset().top},500)'
     })
   })
 }
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     toTopButton.addEventListener('click', () => {
       scrollToTop()
+      clickCount = 0
     })
   })
 })

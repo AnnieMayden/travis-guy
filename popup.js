@@ -16,7 +16,7 @@ function getCurrentTabUrl (callback) {
 function scrollToError (clickCount) {
   chrome.tabs.executeScript(null, {file: 'jquery.js'}, function () {
     chrome.tabs.executeScript({
-      code: 'if (typeof ($((([].slice.call(document.querySelectorAll(".bg-red"))).filter(function (error) {return error.innerHTML === " Test "}))[' + clickCount + '])).offset() === "undefined") {console.log("knock knock, who is there, no more errors, no more errors who, no more errors you like monkeys")} else {$("html, body").animate({scrollTop: $((([].slice.call(document.querySelectorAll(".bg-red"))).filter(function (error) {return error.innerHTML === " Test "}))[' + clickCount + ']).offset().top},500)}'
+      code: 'if (typeof ($((([].slice.call(document.querySelectorAll(".bg-red"))).filter(function (error) {return (error.innerHTML === " Test " || error.innerHTML === "ERRORS!")}))[' + clickCount + '])).offset() === "undefined") {console.log("knock knock, who is there, no more errors, no more errors who, no more errors you like monkeys")} else {$("html, body").animate({scrollTop: $((([].slice.call(document.querySelectorAll(".bg-red"))).filter(function (error) {return (error.innerHTML === " Test " || error.innerHTML === "ERRORS!")}))[' + clickCount + ']).offset().top},500)}'
     })
   })
 }

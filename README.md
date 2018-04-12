@@ -1,4 +1,5 @@
-#Travis Guy jumps to errors in Travis CI
+# travis-guy
+Travis guy helps you with travigation
 
 ##TODO
 1. Wait for page load
